@@ -11,27 +11,9 @@ export default function Home() {
   if (!isAuthenticated) return <LoginView />;
 
   return (
-
-    <AnimatePresence
-      initial={true}
-      exitBeforeEnter={true}
-    >
-
+    <>
       {!isAuthenticated ?
-        <motion.div
-          initial={{
-            opacity: 1
-          }}
-          animate={{
-            opacity: 1
-          }}
-          exit={{
-            opacity: 1
-          }}
-          transition={{ duration: 0.6 }}
-        >
-          <LoginView />
-        </motion.div>
+        <LoginView />
         :
         <motion.div
           initial={{
@@ -50,15 +32,13 @@ export default function Home() {
               <title>Meteverse Challenge</title>
               <link rel="icon" href="/favicon.ico" />
             </Head>
-
+            <p className="text-white text-8xl px-4 p-2 font-Bebas pb-10">Welcome to the METAVERSE</p>
             <button
-              className="bg-pink-600 text-white pb-3 pt-2 px-6 text-2xl"
+              className="bg-pink-600 text-white pb-1 pt-2 px-6 text-2xl font-Bebas"
               onClick={logout}>
               Logout</button>
-
           </div >
         </motion.div>
-      }
-    </AnimatePresence>
+      }</>
   )
 }
