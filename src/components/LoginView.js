@@ -6,7 +6,7 @@ import AuthenticatingView from "./AuthenticatingView";
 import Backdrop from "./Backdrop";
 
 const LoginView = () => {
-    const { authenticate, isAuthenticating } = useMoralis();
+    const { authenticate, isAuthenticating, authError } = useMoralis();
     const [didTapLogin, setDidTapLogin] = useState(false);
 
     const auth = () => {
@@ -18,18 +18,19 @@ const LoginView = () => {
         setDidTapLogin(false)
     }, [])
 
+
     return (
         <div className="overflow-hidden h-full reltaive">
             {isAuthenticating && didTapLogin ? < Backdrop > <AuthenticatingView /> </Backdrop> : null}
             <div className="flex flex-col justify-center items-center absolute space-y-4 w-full h-screen z-30">
                 <div className=" text-center font-Bebas relative ">
                     <p
-                        className="text-white text-9xl px-4 p-2 font-bold overflow-hidden"
+                        className="text-white text-6xl sm:text-9xl px-4 p-2 font-bold overflow-hidden"
                     >
                         Enter the METAVERSE
                     </p>
                     <motion.button
-                        className="bg-pink-600 text-white px-6 pb-2 pt-3 mt-10 text-4xl"
+                        className="bg-pink-600 text-white px-6 pb-2 pt-3 mt-10 text-2xl sm:text-3xl"
                         onClick={auth}
                         whileHover={{ opacity: 0.8 }}
                         transition={{
@@ -43,9 +44,9 @@ const LoginView = () => {
                 <Image src="/31632.jpg" layout='fill' objectFit="cover" priority={true}></Image>
             </div>
 
-            <div className="font-Titillium rotate-6 absolute z-30 bg-blue-600 -top-2 -right-2 bg text-white px-8 py-6 text-center uppercase shadow-xl shadow-black ">
+            <div className="font-Titillium -rotate-6 sm:rotate-6 absolute z-30 -top-2 -left-4 overflow-hidden bg-blue-600 sm:-top-2 sm:-right-2 sm:left-auto bg text-white px-8 py-6 text-center uppercase">
                 <div>Guaranteed</div>
-                <div className=" font-bold text-xl"> Corona free</div>
+                <div className="font-bold sm:text-xl"> Corona free</div>
             </div>
 
         </div >

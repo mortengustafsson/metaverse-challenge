@@ -18,7 +18,7 @@ const AuthenticatingView = () => {
                 }}
                 transition={{ duration: 0.6 }}
             >
-                <div className="text-9xl font-Bebas text-white">Authenticating</div>
+                <div className="text-5xl sm:text-9xl font-Bebas text-white">Authenticating</div>
             </motion.div>
             <motion.div
                 initial={{
@@ -36,7 +36,7 @@ const AuthenticatingView = () => {
                 transition={{ duration: 0.6 }}
 
             >
-                <div className="text-5xl font-Bebas text-white ">
+                <div className=" text-2xl sm:text-5xl font-Bebas text-white ">
                     Please wait
                     <span className="animate-bounce-1 inline-block">.</span>
                     <span className="animate-bounce-2 inline-block">.</span>

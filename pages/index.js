@@ -8,8 +8,6 @@ export default function Home() {
 
   const { isAuthenticated, logout, isInitializing } = useMoralis();
 
-  if (!isAuthenticated) return <LoginView />;
-
   return (
     <>
       {!isAuthenticated ?
@@ -32,7 +30,7 @@ export default function Home() {
               <title>Meteverse Challenge</title>
               <link rel="icon" href="/favicon.ico" />
             </Head>
-            <p className="text-white text-8xl px-4 p-2 font-Bebas pb-10">Welcome to the METAVERSE</p>
+            <div className="text-white text-center text-5xl sm:text-8xl px-4 p-2 font-Bebas pb-10">Welcome to the METAVERSE</div>
             <button
               className="bg-pink-600 text-white pb-1 pt-2 px-6 text-2xl font-Bebas"
               onClick={logout}>

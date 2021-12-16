@@ -4,4 +4,4 @@
 @tailwind components;
 @tailwind utilities;
 
-body { background: #1f2937; overflow: hidden;}
+body { background: #1f2937; overflow: hidden; margin:0; padding: 0;}
