@@ -8,15 +8,8 @@ body { background: black; overflow-x: hidden; margin:0; padding: 0; }
 
 
 .content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    height: 160px;
+
     overflow:hidden;
-    
-    font-family: 'Lato', sans-serif;
-    font-size: 35px;
     line-height: 40px;
     color: #ecf0f1;
 }
@@ -25,6 +18,9 @@ body { background: black; overflow-x: hidden; margin:0; padding: 0; }
       overflow: hidden;
       height: 40px;
       padding: 0 40px;
+      display: flex;
+      justify-content: center;
+      width: 100%;
     }
   
       .content__container:after, .content__container:before {
@@ -44,15 +40,12 @@ body { background: black; overflow-x: hidden; margin:0; padding: 0; }
       }
   
       .content__container__text {
-        display: inline;
-        float: left;
-        margin: 0;
+        display: block;
+        margin: 0 0 0 5px;
       }
   
       .content__container__list {
         margin-top: 0;
-        padding-left: 110px;
-        text-align: left;
         list-style: none;
         
         -webkit-animation-name: change;
@@ -74,11 +67,11 @@ body { background: black; overflow-x: hidden; margin:0; padding: 0; }
   
   @-webkit-keyframes change {
     0%, 12.66%, 100% {transform:translate3d(0,0,0);}
-    16.66%, 29.32% {transform:translate3d(0,-25%,0);}
-    33.32%,45.98% {transform:translate3d(0,-50%,0);}
-    49.98%,62.64% {transform:translate3d(0,-75%,0);}
-    66.64%,79.3% {transform:translate3d(0,-50%,0);}
-    83.3%,95.96% {transform:translate3d(0,-25%,0);}
+    16.66%, 29.32% {transform:translate3d(0,-12.5%,0);}
+    33.32%,45.98% {transform:translate3d(0,-25%,0);}
+    49.98%,62.64% {transform:translate3d(0,-37.5%,0);}
+    66.64%,79.3% {transform:translate3d(0,-25%,0);}
+    83.3%,95.96% {transform:translate3d(0,-12.5%,0);}
   }
   
   @-o-keyframes opacity {
@@ -88,11 +81,11 @@ body { background: black; overflow-x: hidden; margin:0; padding: 0; }
   
   @-o-keyframes change {
     0%, 12.66%, 100% {transform:translate3d(0,0,0);}
-    16.66%, 29.32% {transform:translate3d(0,-25%,0);}
-    33.32%,45.98% {transform:translate3d(0,-50%,0);}
-    49.98%,62.64% {transform:translate3d(0,-75%,0);}
-    66.64%,79.3% {transform:translate3d(0,-50%,0);}
-    83.3%,95.96% {transform:translate3d(0,-25%,0);}
+    16.66%, 29.32% {transform:translate3d(0,-12.5%,0);}
+    33.32%,45.98% {transform:translate3d(0,-25%,0);}
+    49.98%,62.64% {transform:translate3d(0,-37.5%,0);}
+    66.64%,79.3% {transform:translate3d(0,-25%,0);}
+    83.3%,95.96% {transform:translate3d(0,-12.5%,0);}
   }
   
   @-moz-keyframes opacity {
@@ -102,11 +95,11 @@ body { background: black; overflow-x: hidden; margin:0; padding: 0; }
   
   @-moz-keyframes change {
     0%, 12.66%, 100% {transform:translate3d(0,0,0);}
-    16.66%, 29.32% {transform:translate3d(0,-25%,0);}
-    33.32%,45.98% {transform:translate3d(0,-50%,0);}
-    49.98%,62.64% {transform:translate3d(0,-75%,0);}
-    66.64%,79.3% {transform:translate3d(0,-50%,0);}
-    83.3%,95.96% {transform:translate3d(0,-25%,0);}
+    16.66%, 29.32% {transform:translate3d(0,-12.5%,0);}
+    33.32%,45.98% {transform:translate3d(0,-25%,0);}
+    49.98%,62.64% {transform:translate3d(0,-37.5%,0);}
+    66.64%,79.3% {transform:translate3d(0,-25%,0);}
+    83.3%,95.96% {transform:translate3d(0,-12.5%,0);}
   }
   
   @keyframes opacity {
@@ -116,15 +109,13 @@ body { background: black; overflow-x: hidden; margin:0; padding: 0; }
   
   @keyframes change {
     0%, 12.66%, 100% {transform:translate3d(0,0,0);}
-    16.66%, 29.32% {transform:translate3d(0,-25%,0);}
-    33.32%,45.98% {transform:translate3d(0,-50%,0);}
-    49.98%,62.64% {transform:translate3d(0,-75%,0);}
-    66.64%,79.3% {transform:translate3d(0,-50%,0);}
-    83.3%,95.96% {transform:translate3d(0,-25%,0);}
+    16.66%, 29.32% {transform:translate3d(0,-12.5%,0);}
+    33.32%,45.98% {transform:translate3d(0,-25%,0);}
+    47%,60% {transform:translate3d(0,-50%,0);}
+    49.98%,62.64% {transform:translate3d(0,-37.5%,0);}
+    66.64%,79.3% {transform:translate3d(0,-25%,0);}
+    83.3%,95.96% {transform:translate3d(0,-12.5%,0);}
   }
-  
-
-  
   
   .glitch {
     position: relative;

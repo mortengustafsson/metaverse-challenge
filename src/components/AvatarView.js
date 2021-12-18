@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { useEffect, useState } from "react";
 
 const AvatarView = ({ userName, didTapEdit, didTapLogout, showSubMenu }) => {
     return (
@@ -18,8 +17,8 @@ const AvatarView = ({ userName, didTapEdit, didTapLogout, showSubMenu }) => {
                 />
             </div>
             <div className=" w-full h-[200px] flex justify-center items-center flex-col">
-                <div onClick={didTapEdit} className=" hover:text-pink-500 text-white font-Bebas pt-8 text-4xl"> Edit </div>
-                <div onClick={didTapLogout} className=" hover:text-pink-500 text-white font-Bebas pt-2 -pb-14 text-2xl "> Logout </div>
+                <div onClick={didTapEdit} className=" hover:text-pink-500 text-white font-Bebas pt-8 text-4xl border-b border-gray-500"> Edit </div>
+                <div onClick={didTapLogout} className=" hover:text-pink-500 text-white font-Bebas pt-2 -pb-14 text-2xl border-b border-gray-500"> Logout </div>
             </div>
         </motion.div >
     )
