@@ -8,17 +8,24 @@ import Backdrop from '../src/components/Backdrop';
 import EditUserView from '../src/components/EditUserView';
 import React from 'react';
 import MessagesView from '../src/components/MessagesView';
+import StaticAvatarView from '../src/components/StaticAvatar';
 
 export default function Home() {
 
-  const { isAuthenticated, isInitializing } = useMoralis();
+  const { isAuthenticated, isInitializing, user } = useMoralis();
   const [showEdit, setShowEdit] = useState(false);
+  const [showMain, setShowMain] = useState(false);
   const presentEdit = () => setShowEdit(true);
   const dismissEdit = () => setShowEdit(false);
 
+  const [username, setUsername] = useState("");
+
+  useEffect(() => {
+    if (!user) return
+    setUsername(user.getUsername())
+  }, [user])
+
   return (
-
-
     <>
       {!isAuthenticated ?
         <LoginView />
@@ -29,6 +36,7 @@ export default function Home() {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.6 }}
         >
+
           <div className='fixed bottom-4 right-1 opacity-40'>
             <ByMoralis style={{ marginLeft: 'auto', marginRight: 'auto', height: "40px" }} variant="dark" />
           </div>

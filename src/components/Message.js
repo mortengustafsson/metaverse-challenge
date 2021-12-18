@@ -9,7 +9,7 @@ const Message = ({ message }) => {
 
     return (
         <motion.div
-            className={`${isUserMessage ? 'origin-right' : 'origin-left'}`}
+            className={`${isUserMessage ? 'origin-right' : 'origin-left'} m-0`}
             whileHover={{ scale: 1.2 }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}

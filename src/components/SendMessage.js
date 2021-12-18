@@ -7,6 +7,8 @@ const SendMessage = ({ endOfMessagesRef }) => {
     const { user, Moralis } = useMoralis();
     const [message, setMessage] = useState("");
     const [sendButtonVisible, setSendButtonVisible] = useState(false);
+    const [willSendMessage, setWillSendMessage] = useState(false);
+    const [animatedMessage, setAnimatedMessage] = useState("");
 
     const sendMessage = (e) => {
         e.preventDefault();
@@ -20,14 +22,13 @@ const SendMessage = ({ endOfMessagesRef }) => {
             username: user.getUsername(),
             ethAddress: user.get('ethAddress')
         }).then((message) => {
-            console.log(message);
+            endOfMessagesRef.current.scrollIntoView({ behavior: "smooth" })
         }, (error) => {
             console.log(error.message);
         })
-
+        setWillSendMessage(true)
         setMessage("");
 
-        endOfMessagesRef.current.scrollIntoView({ behavior: "smooth" })
 
     }
 
@@ -41,12 +42,28 @@ const SendMessage = ({ endOfMessagesRef }) => {
         e.preventDefault();
         const _message = e.target.value;
         setMessage(_message);
+        setAnimatedMessage(_message);
+
     }
 
     return (
-        <div className="flex justify-center">
-            <form className="fixed bottom-14 right-0 left-0 sm:right-auto sm:left-auto w-full sm:w-11/12 z-50 sm:max-w-2xl m-auto sm:inset-x-0 p-4" onSubmit={(e) => { sendMessage(e) }}>
-                <div className="relative flex w-full sm:w-11/12 z-50 m-auto sm:max-w-2xl">
+        <div className="fixed bottom-14 right-0 left-0 sm:right-auto sm:left-auto w-full sm:w-11/12 sm:max-w-2xl m-auto sm:inset-x-0 p-4 ">
+            {willSendMessage &&
+                <motion.div
+                    initial={{ y: '0', opacity: 1 }}
+                    animate={{ y: "-200px", opacity: 0, scale: 2.5, }}
+                    transition={{
+                        duration: 0.8,
+                    }}
+                    onAnimationComplete={() => { setWillSendMessage(false) }}
+                    className='absolute top-7 left-0 w-full text-center z-30'
+                >
+                    <div className='font-Bebas text-3xl text-white '>Message Sent</div>
+                </motion.div >
+            }
+            <form className="" onSubmit={(e) => { sendMessage(e) }}>
+                {
+                } <div className="relative flex w-full sm:w-11/12 z-40 m-auto sm:max-w-2xl">
                     <input
                         className="
                 bg-white 
@@ -82,10 +99,13 @@ const SendMessage = ({ endOfMessagesRef }) => {
                         Send
                     </motion.button>
                     }
+
                 </div>
 
             </form >
-        </div>
+
+
+        </div >
     )
 }
 
