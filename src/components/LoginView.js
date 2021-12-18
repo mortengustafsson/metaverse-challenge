@@ -22,15 +22,20 @@ const LoginView = () => {
     return (
         <div className="overflow-hidden h-full reltaive">
             {isAuthenticating && didTapLogin ? < Backdrop > <AuthenticatingView /> </Backdrop> : null}
-            <div className="flex flex-col justify-center items-center absolute space-y-4 w-full h-screen z-30">
-                <div className=" text-center font-Bebas relative ">
+            <div className=" w-full h-screen bg-gray-800 overflow-hidden fixed ">
+                <Image src="/1download.jpg" layout='fill' objectFit="cover" priority={true}></Image>
+            </div>
+
+            <div className="flex flex-col justify-center items-center w-full h-screen z-40">
+                <div className="text-center font-Bebas  ">
                     <p
-                        className="text-white text-6xl sm:text-9xl px-4 p-2 font-bold overflow-hidden"
+                        data-text="Enter the METAVERSE"
+                        className="text-white text-6xl sm:text-9xl px-4 p-2 font-bold overflow-hidden glitch is-glitchin "
                     >
                         Enter the METAVERSE
                     </p>
                     <motion.button
-                        className="bg-pink-600 text-white px-6 pb-2 pt-3 mt-10 text-2xl sm:text-3xl"
+                        className="bg-pink-600 text-white px-6 pb-2 pt-3 mt-10 text-2xl sm:text-3xl relative z-10 shadow-2xl shadow-black"
                         onClick={auth}
                         whileHover={{ opacity: 0.8 }}
                         transition={{
@@ -40,10 +45,6 @@ const LoginView = () => {
                     </motion.button>
                 </div>
             </div>
-            <div className="w-full h-screen bg-gray-800 overflow-hidden fixed">
-                <Image src="/31632.jpg" layout='fill' objectFit="cover" priority={true}></Image>
-            </div>
-
         </div >
     )
 }

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useMoralis, useMoralisQuery } from "react-moralis";
-import AvatarView from "./AvatarView";
+import StaticAvatar from "./StaticAvatar";
 
 const Message = ({ message }) => {
     const { user } = useMoralis();
@@ -16,7 +16,7 @@ const Message = ({ message }) => {
         >
             <div className={`flex items-end space-x-2 relative ${isUserMessage && 'justify-end'}`}>
                 <div className={`h-8 w-8 border-2 border-gray-500 rounded-full overflow-hidden relative bg-gradient-to-b from-gray-700 to-gray-90 ${isUserMessage && "order-last ml-2"}`}>
-                    <AvatarView userName={message.get("username")} />
+                    <StaticAvatar userName={message.get("username")} />
                 </div>
                 <div className={`flex space-x-4 p-3 rounded-lg max-w-[70%] break-all ${isUserMessage
                     ? "rounded-br-none bg-pink-500"
