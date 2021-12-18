@@ -34,7 +34,6 @@ const AuthenticatingView = () => {
                     opacity: 0
                 }}
                 transition={{ duration: 0.6 }}
-
             >
                 <div className=" text-2xl sm:text-5xl font-Bebas text-white ">
                     Please wait

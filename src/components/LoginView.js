@@ -1,4 +1,4 @@
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useMoralis } from "react-moralis";
@@ -40,13 +40,8 @@ const LoginView = () => {
                     </motion.button>
                 </div>
             </div>
-            <div className="w-full h-screen bg-gray-800 overflow-hidden">
+            <div className="w-full h-screen bg-gray-800 overflow-hidden fixed">
                 <Image src="/31632.jpg" layout='fill' objectFit="cover" priority={true}></Image>
-            </div>
-
-            <div className="font-Titillium -rotate-6 sm:rotate-6 absolute z-30 -top-2 -left-4 overflow-hidden bg-blue-600 sm:-top-2 sm:-right-2 sm:left-auto bg text-white px-8 py-6 text-center uppercase">
-                <div>Guaranteed</div>
-                <div className="font-bold sm:text-xl"> Corona free</div>
             </div>
 
         </div >
