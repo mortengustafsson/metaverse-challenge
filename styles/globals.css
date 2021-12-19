@@ -6,6 +6,9 @@
 
 body { background: black; overflow-x: hidden; margin:0; padding: 0; }
 
+.breakWord {
+  word-break: break-word;
+}
 
 .content {
 
