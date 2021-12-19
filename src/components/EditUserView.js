@@ -14,7 +14,6 @@ const EditUserView = ({ didTapCancel }) => {
     };
 
     const storeUserName = (e) => {
-        if (!username) return;
         setUserData({ username });
         didTapCancel();
     }
