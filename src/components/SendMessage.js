@@ -12,7 +12,7 @@ const SendMessage = ({ endOfMessagesRef }) => {
 
     const sendMessage = (e) => {
         e.preventDefault();
-        if (!message) return;
+        if (!message || isEmpty(message)) return;
 
         const Messages = Moralis.Object.extend("Messages");
         const messages = new Messages();
