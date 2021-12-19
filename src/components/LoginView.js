@@ -43,8 +43,20 @@ const LoginView = () => {
                         }}>
                         Login
                     </motion.button>
+
+                    <a href="https://metamask.io/" target="_blank" >
+                        <motion.button
+                            className=" bg-white text-pink-600 px-6 pb-2 pt-3 mt-10 text-2xl sm:text-3xl relative z-10 shadow-2xl shadow-black"
+                            whileHover={{ opacity: 0.8 }}
+                            transition={{
+                                duration: 0.3
+                            }}>
+                            Register
+                        </motion.button>
+                    </a>
                 </div>
             </div>
+
         </div >
     )
 }
