@@ -6,8 +6,10 @@ const EditUserView = ({ didTapCancel }) => {
 
     const { user, setUserData, isUserUpdating } = useMoralis();
     const [username, setUsername] = useState(user.getUsername());
+    const [usernameIsEmpty, setUsernameIsEmpty] = useState(true);
 
     const updateUserName = (e) => {
+        setUsernameIsEmpty((e.target.value.replace(/^\s+|\s+$/gm, '').length == 0))
         setUsername(e.target.value)
     };
 
@@ -35,11 +37,11 @@ const EditUserView = ({ didTapCancel }) => {
                 <label class="block text-gray-700 text-sm mb-2 text-left" for="username">
                     Username:
                 </label>
-                <input onChange={(e) => { updateUserName(e) }} onBlur={restoreUserName} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" required placeholder={username} />
+                <input onChange={(e) => { updateUserName(e) }} onBlur={restoreUserName} required className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" required placeholder={username} />
             </div>
 
             <div className="flex">
-                <button disabled={isUserUpdating} className="mr-2 bg-pink-500 p-2 rounded-lg text-white" onClick={storeUserName}>Save</button>
+                <button disabled={isUserUpdating || usernameIsEmpty} className="mr-2 bg-pink-500 p-2 rounded-lg text-white" onClick={storeUserName}>Save</button>
                 <button className="ml-2 bg-gray-400 p-2 rounded-lg text-white" onClick={didTapCancel}>Cancel</button>
             </div>
         </motion.div >
