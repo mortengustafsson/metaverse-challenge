@@ -13,7 +13,7 @@ const MessageView = ({ endOfMessagesRef }) => {
     );
 
     return (
-        <div className="text-white m-auto space-y-10 pb-56 sm:max-w-2xl w-full">
+        <div className="text-white m-auto space-y-3 pb-56 sm:max-w-2xl w-full">
             {data.map((message) => {
                 return <Message key={message.id} message={message} />
             })}
