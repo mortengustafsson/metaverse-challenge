@@ -28,8 +28,6 @@ const SendMessage = ({ endOfMessagesRef }) => {
         })
         setWillSendMessage(true)
         setMessage("");
-
-
     }
 
     useEffect(() => {
@@ -47,7 +45,7 @@ const SendMessage = ({ endOfMessagesRef }) => {
     }
 
     return (
-        <div className="fixed bottom-14 right-0 left-0 sm:right-auto sm:left-auto w-full sm:w-11/12 sm:max-w-2xl m-auto sm:inset-x-0 p-4 ">
+        <div className="fixed bottom-14 right-0 left-0 xs:right-auto xs:left-auto w-full sm:w-11/12 sm:max-w-2xl m-auto sm:inset-x-0 p-4 ">
             {willSendMessage &&
                 <motion.div
                     initial={{ y: '0', opacity: 1 }}
