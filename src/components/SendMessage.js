@@ -1,14 +1,14 @@
 import { motion } from "framer-motion";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useMoralis } from "react-moralis";
 
-const SendMessage = ({ endOfMessagesRef }) => {
+const SendMessage = ({ didSendMessage }) => {
 
     const { user, Moralis } = useMoralis();
     const [message, setMessage] = useState("");
     const [sendButtonVisible, setSendButtonVisible] = useState(false);
     const [willSendMessage, setWillSendMessage] = useState(false);
-    const [animatedMessage, setAnimatedMessage] = useState("");
+    const isEmpty = (str) => (str.replace(/^\s+|\s+$/gm, '').length == 0)
 
     const sendMessage = (e) => {
         e.preventDefault();
@@ -21,8 +21,8 @@ const SendMessage = ({ endOfMessagesRef }) => {
             message: message,
             username: user.getUsername(),
             ethAddress: user.get('ethAddress')
-        }).then((message) => {
-            endOfMessagesRef.current.scrollIntoView({ behavior: "smooth" })
+        }).then(() => {
+            didSendMessage();
         }, (error) => {
             console.log(error.message);
         })
@@ -34,14 +34,11 @@ const SendMessage = ({ endOfMessagesRef }) => {
         setSendButtonVisible(!isEmpty(message))
     }, [message])
 
-    const isEmpty = (str) => (str.replace(/^\s+|\s+$/gm, '').length == 0)
 
     const updateMessage = (e) => {
         e.preventDefault();
         const _message = e.target.value;
         setMessage(_message);
-        setAnimatedMessage(_message);
-
     }
 
     return (
@@ -63,23 +60,7 @@ const SendMessage = ({ endOfMessagesRef }) => {
                 {
                 } <div className="relative flex w-full sm:w-11/12 z-40 m-auto sm:max-w-2xl">
                     <input
-                        className="
-                bg-white 
-                shadow-lg 
-                shadow-black/60 
-                flex-grow 
-                text-gray-800 
-                appearance-none 
-                border-4
-                border-gray-400
-                rounded-full 
-                py-4
-                pl-6
-                sm:pr-[5.4rem]
-                placeholder:text-gray-700 
-                leading-tight 
-                focus:outline-none 
-                focus:shadow-outline"
+                        className=" bg-white shadow-lg shadow-black/60 flex-grow text-gray-800 appearance-none border-4 border-gray-400 rounded-full py-4 pl-6 sm:pr-[5.4rem] placeholder:text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                         id="username"
                         type="text"
                         autoComplete="off"
@@ -97,12 +78,8 @@ const SendMessage = ({ endOfMessagesRef }) => {
                         Send
                     </motion.button>
                     }
-
                 </div>
-
             </form >
-
-
         </div >
     )
 }

@@ -1,5 +1,6 @@
+import React from "react";
 import { motion } from "framer-motion";
-import { useMoralis, useMoralisQuery } from "react-moralis";
+import { useMoralis } from "react-moralis";
 import StaticAvatar from "./StaticAvatar";
 import TimeAgo from 'timeago-react';
 
@@ -22,7 +23,7 @@ const Message = ({ message }) => {
                 <div className="flex flex-col max-w-[70%] w-auto">
                     <p className={`pb-2 text-sm ${isUserMessage ? 'text-right' : 'text-left'}`}> {message.get('username')}
                     </p>
-                    <div className={`flex space-x-4 p-3 rounded-lg breakWord ${isUserMessage
+                    <div className={`flex space-x-4 p-3 rounded-lg breakWords ${isUserMessage
                         ? "rounded-tr-none bg-pink-500"
                         : "rounded-tl-none bg-blue-500"}`
                     }>

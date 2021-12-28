@@ -1,13 +1,18 @@
+import React from "react";
 import { useRef } from "react";
 import { useMoralisQuery } from "react-moralis";
 import Message from "./Message";
 import SendMessage from "./SendMessage";
 import UptoDateView from "./UptoDateView";
 
-const MessageView = ({ endOfMessagesRef }) => {
-    endOfMessagesRef = useRef(null);
+const MessageView = () => {
+    const endOfMessagesRef = useRef(null);
 
-    const { data, loading, error } = useMoralisQuery(
+    const didSendMessage = () => {
+        endOfMessagesRef.current.scrollIntoView({ behavior: "smooth" })
+    }
+
+    const { data } = useMoralisQuery(
         'Messages',
         (query) => query.ascending('createdAt'), [], { live: true }
     );
@@ -17,10 +22,10 @@ const MessageView = ({ endOfMessagesRef }) => {
             {data.map((message) => {
                 return <Message key={message.id} message={message} />
             })}
-
-            <UptoDateView endOfMessagesRef={endOfMessagesRef} />
-            <SendMessage endOfMessagesRef={endOfMessagesRef} />
-
+            <div ref={endOfMessagesRef}>
+                <UptoDateView />
+            </div>
+            <SendMessage didSendMessage={didSendMessage} />
         </div>
     )
 }

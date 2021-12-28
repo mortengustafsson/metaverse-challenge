@@ -1,5 +1,6 @@
+import React from "react";
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useMoralis } from "react-moralis";
 
 const EditUserView = ({ didTapCancel }) => {
@@ -13,7 +14,7 @@ const EditUserView = ({ didTapCancel }) => {
         setUsername(e.target.value)
     };
 
-    const storeUserName = (e) => {
+    const storeUserName = () => {
         setUserData({ username });
         didTapCancel();
     }
@@ -25,18 +26,19 @@ const EditUserView = ({ didTapCancel }) => {
     return (
         <motion.div
             className="flex flex-col w-full m-4 sm:m-auto lg:w-1/2 sm:max-w-lg text-gray-800 items-center justify-center bg-gray-100 p-6 py-8 rounded-xl shadow-lg shadow-gray-900/40"
-            initial={{ y: "100vh" }}
+            initial={{ y: "-100vh" }}
             animate={{ y: "0" }}
             exit={{ y: "100vh" }}
+            transition={{ duration: 0.8, type: "spring", stiffness: 125 }}
             onClick={(e) => { e.stopPropagation() }}
         >
             <h1 className="text-5xl font-Bebas">Edit Profile</h1>
 
             <div className="p-4 pb-6 w-full">
-                <label class="block text-gray-700 text-sm mb-2 text-left" for="username">
+                <label className="block text-gray-700 text-sm mb-2 text-left" htmlFor="username">
                     Username:
                 </label>
-                <input onChange={(e) => { updateUserName(e) }} onBlur={restoreUserName} required className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" required placeholder={username} />
+                <input onChange={(e) => { updateUserName(e) }} onBlur={restoreUserName} required className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder={username} />
             </div>
 
             <div className="flex">
