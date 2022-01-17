@@ -4,7 +4,7 @@ import { useMoralis } from "react-moralis";
 import StaticAvatar from "./StaticAvatar";
 import TimeAgo from 'timeago-react';
 
-const Message = ({ message }) => {
+const MessageView = ({ message }) => {
     const { user } = useMoralis();
     const isUserMessage = message.get('ethAddress') === user.get("ethAddress");
 
@@ -39,4 +39,4 @@ const Message = ({ message }) => {
     )
 }
 
-export default Message;
+export default MessageView;

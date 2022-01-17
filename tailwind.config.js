@@ -11,9 +11,9 @@ module.exports = {
         Oswald: ["Oswald", "sans-serif"]
       },
       animation: {
-        'bounce-1': 'bounce 1s linear infinite 0.1s',
-        'bounce-2': 'bounce 1s linear infinite 0.2s',
-        'bounce-3': 'bounce 1s linear infinite 0.3s',
+        'bounceA': 'bounce 1s linear infinite 0.1s',
+        'bounceB': 'bounce 1s linear infinite 0.2s',
+        'bounceC': 'bounce 1s linear infinite 0.3s',
         'fadeIn': 'visible 0.5s linear forwards',
         'fadeOut': 'hidden 0.5s linear forwards'
       },

@@ -1,12 +1,12 @@
-import Head from 'next/head'
-import LoginView from '../src/components/LoginView'
+import { AnimatePresence, motion } from 'framer-motion';
 import { ByMoralis, useMoralis } from 'react-moralis';
 import { useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
-import HeaderView from '../src/components/HeaderView';
+import React from "react";
 import Backdrop from '../src/components/Backdrop';
 import EditUserView from '../src/components/EditUserView';
-import React from 'react';
+import Head from 'next/head'
+import HeaderView from '../src/components/HeaderView';
+import LoginView from '../src/components/LoginView'
 import MessagesView from '../src/components/MessagesView';
 
 export default function Home() {

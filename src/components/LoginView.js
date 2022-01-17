@@ -18,7 +18,7 @@ const LoginView = () => {
     return (
         <div className="overflow-hidden h-full reltaive font-Bebas">
             <div className=" w-full h-screen bg-gray-800 overflow-hidden fixed ">
-                <Image src="/1download.jpg" layout='fill' objectFit="cover" priority={true}></Image>
+                <Image src="/start-screen.jpg" layout='fill' objectFit="cover" priority={true}></Image>
             </div>
 
             <div className="flex flex-col justify-center items-center w-full h-screen z-40">

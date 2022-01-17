@@ -1,11 +1,11 @@
 import React from "react";
 import { useRef } from "react";
 import { useMoralisQuery } from "react-moralis";
-import Message from "./Message";
+import MessageView from "./MessageView";
 import SendMessage from "./SendMessage";
-import UptoDateView from "./UptoDateView";
+import UpToDateView from "./UpToDateView";
 
-const MessageView = () => {
+const MessagesView = () => {
     const endOfMessagesRef = useRef(null);
 
     const didSendMessage = () => {
@@ -20,14 +20,14 @@ const MessageView = () => {
     return (
         <div className="text-white m-auto space-y-3 pb-56 sm:max-w-2xl w-full">
             {data.map((message) => {
-                return <Message key={message.id} message={message} />
+                return <MessageView key={message.id} message={message} />
             })}
             <div ref={endOfMessagesRef}>
-                <UptoDateView />
+                <UpToDateView />
             </div>
             <SendMessage didSendMessage={didSendMessage} />
         </div>
     )
 }
 
-export default MessageView;
+export default MessagesView;

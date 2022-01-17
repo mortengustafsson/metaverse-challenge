@@ -36,9 +36,9 @@ const AuthenticatingView = () => {
                 <div className="text-2xl sm:text-5xl font-Bebas text-white ">
                     Please wait
                     <div className="inline-block">
-                        <span className="animate-bounce-1 inline-block">.</span>
-                        <span className="animate-bounce-2 inline-block">.</span>
-                        <span className="animate-bounce-3 inline-block">.</span>
+                        <span className="animate-bounceA inline-block">.</span>
+                        <span className="animate-bounceB inline-block">.</span>
+                        <span className="animate-bounceC inline-block">.</span>
                     </div>
                 </div>
             </motion.div >
